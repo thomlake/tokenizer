@@ -1,0 +1,33 @@
+# tokenizer
+
+## Overview
+Tokenize a string.
+
+## Usage
+(ns your-namespace
+	(:require tokenizer.core))
+
+## Public Functions
+(tokenize s split-keep split-ditch)
+Scans a string s and returns a vector of tokens in string as specified by split-keep and split-ditch.
+split-keep specifies delimeters on which the string should be split, keeping the delimeter as the first character in the next token.
+split-ditch specifies delimeters on which the string should be split, throwing away the delimeter.
+split-keep and split-ditch can be functions which take a char and return true (split) or false (don't split) or strings of which each character is a delimeter.
+Characters are compared first to be disregarded. Keep this in mind if split-keep and split-ditch are not mutually exclusive.
+
+!!!split-keep and split-ditch should be of the same type!!!
+This may be changed at some future date, but you have been warned.
+
+## Example
+user=>(tokenize "my cat,is!cool" "!," " ")
+["my" "cat" "," "is" "!" "cool"]
+
+## Installation
+
+lein install
+
+## License
+
+Copyright (C) 2010 tllake
+
+Distributed under the Eclipse Public License, the same as Clojure.
